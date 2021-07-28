@@ -13,6 +13,7 @@
         <h5 class="card-title text-info">
           {{ feedback.title }}
           <form style="display:inline;" action="/feedback/{{ feedback.id }}/delete" method='POST'>
+            {{form.hidden_tag()}}
             <button class="btn btn-sm btn-danger">X</button>
           </form>
           <form style="display:inline;" action='/feedback/{{ feedback.id }}/update'>

@@ -168,9 +168,12 @@ def delete_feedback(feedback_id):
         form.username.errors = ["You are not authorized here."]
         return redirect ('/login')
 
-    
-    db.session.delete(feedback)
-    db.session.commit()
+    form = DeleteForm()
+
+    if form.validate_on_submit():
+
+        db.session.delete(feedback)
+        db.session.commit()
 
     return redirect(f"/users/{feedback.username}")
 
